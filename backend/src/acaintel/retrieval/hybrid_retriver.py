@@ -72,19 +72,20 @@ def keyword_score(query, text):
     return matches / len(query_terms)
 
 
-def source_boost(query, source):
-    query_normalized = normalize_text(query)
+def keyword_score(query, text):
+    query_terms = normalize_text(query).split()
+    text_normalized = normalize_text(text)
 
-    budget_hits = sum(1 for word in BUDGET_KEYWORDS if word in query_normalized)
-    election_hits = sum(1 for word in ELECTION_KEYWORDS if word in query_normalized)
+    if not query_terms:
+        return 0.0
 
-    if source == "Budget.pdf" and budget_hits >= election_hits:
-        return 0.08
+    matches = 0
 
-    if source == "Ghana_Election_Result.csv" and election_hits > budget_hits:
-        return 0.08
+    for term in query_terms:
+        if term in text_normalized:
+            matches += 1
 
-    return 0.0
+    return matches / len(query_terms)
 
 
 def exact_phrase_boost(query, text):
