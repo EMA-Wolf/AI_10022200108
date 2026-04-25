@@ -3,6 +3,7 @@ Paths and constants resolved from the backend root (parent of `src/`).
 Works regardless of current working directory when running uvicorn or pipelines.
 """
 
+import os
 from pathlib import Path
 
 # backend/src/acaintel/config.py -> parents[2] == backend/
@@ -14,6 +15,11 @@ VECTOR_STORE_DIR: Path = BACKEND_ROOT / "vector_store"
 LOGS_DIR: Path = BACKEND_ROOT / "logs"
 
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
+
+# Runtime retrieval mode for API:
+# - "light": keyword-only retrieval (low memory, deploy-friendly)
+# - "hybrid": FAISS + sentence-transformers retrieval (higher quality, high memory)
+RETRIEVER_MODE = os.getenv("RETRIEVER_MODE", "light").strip().lower()
 
 # Vector store / retrieval
 FAISS_INDEX_PATH = str(VECTOR_STORE_DIR / "faiss_index.index")

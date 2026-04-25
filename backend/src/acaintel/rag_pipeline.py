@@ -1,4 +1,4 @@
-from src.acaintel.retrieval.hybrid_retriver import load_retriever_assets
+from src.acaintel.api.deps import get_rag_assets
 from src.acaintel.services.rag import run_rag_query
 
 
@@ -20,7 +20,7 @@ def print_rag_output(output):
 
 
 if __name__ == "__main__":
-    index, chunks, model = load_retriever_assets()
+    assets = get_rag_assets()
 
     while True:
         user_query = input("\nAsk AcaIntel AI a question, or type 'exit': ")
@@ -30,9 +30,7 @@ if __name__ == "__main__":
 
         output = run_rag_query(
             user_query,
-            index,
-            chunks,
-            model,
+            assets,
             top_k=5,
             candidate_k=25,
             log=True,

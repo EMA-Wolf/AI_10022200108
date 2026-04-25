@@ -16,12 +16,9 @@ def chat(
     request: ChatRequest,
     assets: RagAssets = Depends(get_rag_assets),
 ):
-    index, chunks, model = assets
     out = run_rag_query(
         request.query,
-        index,
-        chunks,
-        model,
+        assets,
         top_k=5,
         candidate_k=25,
         log=True,
