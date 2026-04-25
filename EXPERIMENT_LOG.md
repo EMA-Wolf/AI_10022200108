@@ -1,9 +1,8 @@
 # CS4241 RAG Experiment Log (Manual)
 
-Student Name: `<Your Name>`  
-Index Number: `<Your Index Number>`  
-Repository: `<GitHub URL>`  
-Deployed URL: `<App URL>`  
+Student Name: `Eli Kofi Maxwell-Aidam`  
+Index Number: `10022200108`   
+Deployed URL: `https://acaintel-ai.vercel.app/`
 Date Range: `2026-04-25`
 
 ---

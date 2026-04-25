@@ -1,5 +1,11 @@
 # CS4241 - Introduction to Artificial Intelligence (2026)
 
+Student Name: `Eli Kofi Maxwell-Aidam`  
+Index Number: `10022200108`    
+Deployed URL: `https://acaintel-ai.vercel.app/`
+
+---
+
 ## AcaIntel AI: Custom RAG Chat Assistant for Academic City
 
 This repository contains my project-based exam solution for **CS4241 - Introduction to Artificial Intelligence** (Academic City University, End of Second Semester Examination - 2026).
