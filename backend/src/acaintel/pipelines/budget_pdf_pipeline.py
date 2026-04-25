@@ -8,6 +8,7 @@ from src.acaintel.config import (
     BUDGET_CHUNKS_OUTPUT_PATH,
     BUDGET_PDF_PATH,
     BUDGET_RAW_TEXT_PATH,
+    PROCESSED_DIR,
 )
 
 
@@ -255,7 +256,7 @@ def save_outputs(cleaned_pages, chunks):
     Saves raw cleaned text and JSON chunks.
     """
 
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(PROCESSED_DIR, exist_ok=True)
 
     with open(RAW_TEXT_OUTPUT_PATH, "w", encoding="utf-8") as file:
         for page in cleaned_pages:
