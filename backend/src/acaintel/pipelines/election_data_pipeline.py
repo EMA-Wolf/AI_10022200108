@@ -3,19 +3,21 @@ import re
 import json
 import pandas as pd
 
+from src.acaintel.config import (
+    ELECTION_CHUNKS_OUTPUT_PATH,
+    ELECTION_CLEAN_CSV_PATH,
+    ELECTION_CSV_PATH,
+    PROCESSED_DIR,
+)
+
 
 # =========================
 # CONFIGURATION
 # =========================
 
-DATA_DIR = "data"
-OUTPUT_DIR = "processed"
-
-# Put your downloaded CSV inside the data folder with this name
-LOCAL_CSV_PATH = os.path.join(DATA_DIR, "Ghana_Election_Result.csv")
-
-CLEAN_OUTPUT_PATH = os.path.join(OUTPUT_DIR, "ghana_election_clean.csv")
-CHUNKS_OUTPUT_PATH = os.path.join(OUTPUT_DIR, "ghana_election_chunks.json")
+LOCAL_CSV_PATH = ELECTION_CSV_PATH
+CLEAN_OUTPUT_PATH = ELECTION_CLEAN_CSV_PATH
+CHUNKS_OUTPUT_PATH = ELECTION_CHUNKS_OUTPUT_PATH
 
 
 # =========================
@@ -232,7 +234,7 @@ def create_election_chunks(df):
 # =========================
 
 def save_clean_data(df, chunks):
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(PROCESSED_DIR, exist_ok=True)
 
     df.to_csv(CLEAN_OUTPUT_PATH, index=False)
 

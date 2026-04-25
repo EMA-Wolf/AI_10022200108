@@ -1,4 +1,3 @@
-
 import os
 import json
 import pickle
@@ -6,22 +5,15 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
 
-
-# =========================
-# CONFIGURATION
-# =========================
-
-PROCESSED_DIR = "processed"
-VECTOR_DIR = "vector_store"
-
-ELECTION_CHUNKS_PATH = os.path.join(PROCESSED_DIR, "ghana_election_chunks.json")
-BUDGET_CHUNKS_PATH = os.path.join(PROCESSED_DIR, "budget_chunks.json")
-
-COMBINED_CHUNKS_PATH = os.path.join(VECTOR_DIR, "combined_chunks.json")
-FAISS_INDEX_PATH = os.path.join(VECTOR_DIR, "faiss_index.index")
-EMBEDDINGS_PATH = os.path.join(VECTOR_DIR, "embeddings.pkl")
-
-EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
+from src.acaintel.config import (
+    BUDGET_CHUNKS_PATH,
+    COMBINED_CHUNKS_PATH,
+    ELECTION_CHUNKS_PATH,
+    EMBEDDING_MODEL_NAME,
+    EMBEDDINGS_PATH,
+    FAISS_INDEX_PATH,
+    VECTOR_STORE_DIR,
+)
 
 
 # =========================
@@ -92,7 +84,7 @@ def build_faiss_index(embeddings):
 # =========================
 
 def save_vector_store(chunks, embeddings, index):
-    os.makedirs(VECTOR_DIR, exist_ok=True)
+    os.makedirs(VECTOR_STORE_DIR, exist_ok=True)
 
     with open(COMBINED_CHUNKS_PATH, "w", encoding="utf-8") as file:
         json.dump(chunks, file, indent=4, ensure_ascii=False)

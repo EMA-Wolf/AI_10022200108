@@ -4,13 +4,11 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-
-VECTOR_DIR = "vector_store"
-
-FAISS_INDEX_PATH = os.path.join(VECTOR_DIR, "faiss_index.index")
-COMBINED_CHUNKS_PATH = os.path.join(VECTOR_DIR, "combined_chunks.json")
-
-EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
+from src.acaintel.config import (
+    COMBINED_CHUNKS_PATH,
+    EMBEDDING_MODEL_NAME,
+    FAISS_INDEX_PATH,
+)
 
 
 def load_retriever_assets():

@@ -4,17 +4,20 @@ import json
 import fitz  # PyMuPDF
 
 
+from src.acaintel.config import (
+    BUDGET_CHUNKS_OUTPUT_PATH,
+    BUDGET_PDF_PATH,
+    BUDGET_RAW_TEXT_PATH,
+)
+
+
 # =========================
 # CONFIGURATION
 # =========================
 
-DATA_DIR = "data"
-OUTPUT_DIR = "processed"
-
-PDF_PATH = os.path.join(DATA_DIR, "Budget.pdf")
-
-RAW_TEXT_OUTPUT_PATH = os.path.join(OUTPUT_DIR, "budget_raw_text.txt")
-CHUNKS_OUTPUT_PATH = os.path.join(OUTPUT_DIR, "budget_chunks.json")
+PDF_PATH = BUDGET_PDF_PATH
+RAW_TEXT_OUTPUT_PATH = BUDGET_RAW_TEXT_PATH
+CHUNKS_OUTPUT_PATH = BUDGET_CHUNKS_OUTPUT_PATH
 
 
 # =========================
